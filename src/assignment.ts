@@ -2,7 +2,6 @@ import * as fs from 'fs';
 
 function mergeFragmentsWithMaxOverlap(fragments: string[]) {
     while (fragments.length > 1) {
-        console.log('$$$',fragments)
     let maxOverlapIndex1 = 0, maxOverlapIndex2 = 1, maxOverlapInfo = mergeWithOverlap(fragments[0], fragments[1]);
 
     for (let i = 0; i < fragments.length; i++) {
@@ -19,15 +18,12 @@ function mergeFragmentsWithMaxOverlap(fragments: string[]) {
     fragments.splice(maxOverlapIndex2, 1);
     fragments.splice(maxOverlapIndex1, 1);
     fragments.push(maxOverlapInfo.merged);
-
-    console.log('!!!', maxOverlapIndex1, maxOverlapIndex2, '@@@', maxOverlapInfo, '###', fragments[0])
     }
     return fragments[0];
 }
 
 function mergeWithOverlap(a: string, b: string): { merged: string; overlap: number } {
     let max = 0, merged = a + b;
-    console.log('AAA', merged)
     for (let i = 1; i <= Math.min(a.length, b.length); i++) {
         if (a.slice(-i) === b.slice(0, i)) {
             if (i > max) {
@@ -42,7 +38,8 @@ function mergeWithOverlap(a: string, b: string): { merged: string; overlap: numb
             }
         }
     }
-    console.log('BBB', merged, max)
+    if (a.includes(b)) return { merged: a, overlap: b.length };
+    if (b.includes(a)) return { merged: b, overlap: a.length };
     return { merged, overlap: max };
 }
 
