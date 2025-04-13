@@ -9,7 +9,7 @@ A React.js application that write in TypeScript
 
 ### Installation & Usage
 
-Clone the repo, install dependencies and usage:
+Clone the repo, install dependencies and usage in Terminal:
 
 - npm install
 - npm run build

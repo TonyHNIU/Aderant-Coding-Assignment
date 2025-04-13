@@ -44,4 +44,4 @@ function mergeWithOverlap(a: string, b: string): { merged: string; overlap: numb
 }
 
 const input = fs.readFileSync('fragments.txt', 'utf-8').split(/\r?\n/).filter(line => line.trim());
-console.log("Output:", mergeFragmentsWithMaxOverlap(input))
+console.log("*Output*:", mergeFragmentsWithMaxOverlap(input))
