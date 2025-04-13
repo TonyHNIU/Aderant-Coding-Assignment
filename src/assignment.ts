@@ -1,5 +1,3 @@
-import * as fs from 'fs';
-
 function mergeFragmentsWithMaxOverlap(fragments: string[]) {
     while (fragments.length > 1) {
     let maxOverlapIndex1 = 0, maxOverlapIndex2 = 1, maxOverlapInfo = mergeWithOverlap(fragments[0], fragments[1]);
@@ -43,5 +41,10 @@ function mergeWithOverlap(a: string, b: string): { merged: string; overlap: numb
     return { merged, overlap: max };
 }
 
-const input = fs.readFileSync('fragments.txt', 'utf-8').split(/\r?\n/).filter(line => line.trim());
-console.log("*Output*:", mergeFragmentsWithMaxOverlap(input))
+const fragments = [
+    "alliswell",
+    "ellthaten",
+    "hatend",
+    "tendswell"
+];
+console.log("*Output*:", mergeFragmentsWithMaxOverlap(fragments))
